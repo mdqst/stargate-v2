@@ -46,11 +46,14 @@ export default async (): Promise<OmniGraphHardhat<FeeLibV1NodeConfig, FeeLibV1Ed
     const seiFeeLibV1 = onSei(contract)
     const zkConsensysFeeLibV1 = onZkConsensys(contract)
 
-    // TODO alphebatize
     return {
         contracts: [
             {
                 contract: arbFeeLibV1,
+                config: defaultNodeConfig,
+            },
+            {
+                contract: baseFeeLibV1,
                 config: defaultNodeConfig,
             },
             {
@@ -59,10 +62,6 @@ export default async (): Promise<OmniGraphHardhat<FeeLibV1NodeConfig, FeeLibV1Ed
             },
             {
                 contract: flareFeeLibV1,
-                config: defaultNodeConfig,
-            },
-            {
-                contract: optFeeLibV1,
                 config: defaultNodeConfig,
             },
             {
@@ -78,19 +77,19 @@ export default async (): Promise<OmniGraphHardhat<FeeLibV1NodeConfig, FeeLibV1Ed
                 config: defaultNodeConfig,
             },
             {
-                contract: metisFeeLibV1,
-                config: defaultNodeConfig,
-            },
-            {
-                contract: zkConsensysFeeLibV1,
-                config: defaultNodeConfig,
-            },
-            {
                 contract: mantleFeeLibV1,
                 config: defaultNodeConfig,
             },
             {
-                contract: baseFeeLibV1,
+                contract: metisFeeLibV1,
+                config: defaultNodeConfig,
+            },
+            {
+                contract: optFeeLibV1,
+                config: defaultNodeConfig,
+            },
+            {
+                contract: peaqFeeLibV1,
                 config: defaultNodeConfig,
             },
             {
@@ -102,7 +101,7 @@ export default async (): Promise<OmniGraphHardhat<FeeLibV1NodeConfig, FeeLibV1Ed
                 config: defaultNodeConfig,
             },
             {
-                contract: peaqFeeLibV1,
+                contract: zkConsensysFeeLibV1,
                 config: defaultNodeConfig,
             },
         ],
