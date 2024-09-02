@@ -20,6 +20,7 @@ import {
     onMantle,
     onMetis,
     onOpt,
+    onPeaq,
     onPolygon,
     onRarible,
     onScroll,
@@ -54,6 +55,7 @@ export default async (): Promise<OmniGraphHardhat<CreditMessagingNodeConfig, Cre
     const mantleCreditMsging = onMantle(contract)
     const metisCreditMsging = onMetis(contract)
     const optCreditMsging = onOpt(contract)
+    const peaqCreditMsging = onPeaq(contract)
     const polygonCreditMsging = onPolygon(contract)
     const raribleCreditMsging = onRarible(contract)
     const scrollCreditMsging = onScroll(contract)
@@ -197,6 +199,15 @@ export default async (): Promise<OmniGraphHardhat<CreditMessagingNodeConfig, Cre
                     delegate: getSafeAddress(EndpointId.OPTIMISM_V2_MAINNET),
                     planner: DEFAULT_PLANNER,
                     assets: assetConfigs[EndpointId.OPTIMISM_V2_MAINNET],
+                },
+            },
+            {
+                contract: peaqCreditMsging,
+                config: {
+                    owner: getSafeAddress(EndpointId.PEAQ_V2_MAINNET),
+                    delegate: getSafeAddress(EndpointId.PEAQ_V2_MAINNET),
+                    planner: DEFAULT_PLANNER,
+                    assets: assetConfigs[EndpointId.PEAQ_V2_MAINNET],
                 },
             },
             {

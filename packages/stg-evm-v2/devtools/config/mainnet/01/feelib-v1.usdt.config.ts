@@ -18,6 +18,7 @@ import {
     onMantle,
     onMetis,
     onOpt,
+    onPeaq,
     onPolygon,
     onRarible,
     onSei,
@@ -47,6 +48,7 @@ export default async (): Promise<OmniGraphHardhat<FeeLibV1NodeConfig, FeeLibV1Ed
     const mantleFeeLibV1 = onMantle(contract)
     const metisFeeLibV1 = onMetis(contract)
     const optFeeLibV1 = onOpt(contract)
+    const peaqFeeLibV1 = onPeaq(contract)
     const polygonFeeLibV1 = onPolygon(contract)
     const raribleFeeLibV1 = onRarible(contract)
     const seiFeeLibV1 = onSei(contract)
@@ -104,6 +106,10 @@ export default async (): Promise<OmniGraphHardhat<FeeLibV1NodeConfig, FeeLibV1Ed
             },
             {
                 contract: optFeeLibV1,
+                config: defaultNodeConfig,
+            },
+            {
+                contract: peaqFeeLibV1,
                 config: defaultNodeConfig,
             },
             {

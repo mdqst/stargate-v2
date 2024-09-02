@@ -7,7 +7,7 @@ import { EndpointId } from '@layerzerolabs/lz-definitions'
 import { getTokenDeployName, getUSDTDeployName } from '../../../../ops/util'
 import { createGetAssetAddresses, getAssetType } from '../../../../ts-src/utils/util'
 import { getSafeAddress } from '../../utils'
-import { onEbi, onFlare, onGravity, onIota, onKlaytn, onRarible, onSei, onTaiko } from '../utils'
+import { onEbi, onFlare, onGravity, onIota, onKlaytn, onPeaq, onRarible, onSei, onTaiko } from '../utils'
 
 export default async (): Promise<OmniGraphHardhat<MintableNodeConfig, unknown>> => {
     // First let's create the HardhatRuntimeEnvironment objects for all networks
@@ -22,6 +22,7 @@ export default async (): Promise<OmniGraphHardhat<MintableNodeConfig, unknown>> 
     const gravityUSDT = onGravity(usdtContractTemplate)
     const iotaUSDT = onIota(usdtContractTemplate)
     const klaytnUSDT = onKlaytn(usdtContractTemplate)
+    const peaqUSDT = onPeaq(usdtContractTemplate)
     const raribleUSDT = onRarible(usdtContractTemplate)
     const taikoUSDT = onTaiko(usdtContractTemplate)
 
@@ -37,6 +38,7 @@ export default async (): Promise<OmniGraphHardhat<MintableNodeConfig, unknown>> 
         getAssetType(EndpointId.GRAVITY_V2_MAINNET, TokenName.ETH)
     )
     const gravityETH = onGravity({ contractName: gravityETHContractName })
+
     const iotaETHContractName = getTokenDeployName(
         TokenName.ETH,
         getAssetType(EndpointId.IOTA_V2_MAINNET, TokenName.ETH)
@@ -48,6 +50,12 @@ export default async (): Promise<OmniGraphHardhat<MintableNodeConfig, unknown>> 
         getAssetType(EndpointId.KLAYTN_V2_MAINNET, TokenName.ETH)
     )
     const klaytnETH = onKlaytn({ contractName: klaytnETHContractName })
+
+    const peaqETHContractName = getTokenDeployName(
+        TokenName.ETH,
+        getAssetType(EndpointId.PEAQ_V2_MAINNET, TokenName.ETH)
+    )
+    const peaqETH = onPeaq({ contractName: peaqETHContractName })
 
     const seiETHContractName = getTokenDeployName(TokenName.ETH, getAssetType(EndpointId.SEI_V2_MAINNET, TokenName.ETH))
     const seiETH = onSei({ contractName: seiETHContractName })
@@ -68,6 +76,10 @@ export default async (): Promise<OmniGraphHardhat<MintableNodeConfig, unknown>> 
         TokenName.USDT,
     ] as const)
     const klaytnAssetAddresses = await getAssetAddresses(EndpointId.KLAYTN_V2_MAINNET, [
+        TokenName.ETH,
+        TokenName.USDT,
+    ] as const)
+    const peaqAssetAddresses = await getAssetAddresses(EndpointId.PEAQ_V2_MAINNET, [
         TokenName.ETH,
         TokenName.USDT,
     ] as const)
@@ -155,6 +167,24 @@ export default async (): Promise<OmniGraphHardhat<MintableNodeConfig, unknown>> 
                     owner: getSafeAddress(EndpointId.KLAYTN_V2_MAINNET),
                     minters: {
                         [klaytnAssetAddresses.USDT]: true,
+                    },
+                },
+            },
+            {
+                contract: peaqETH,
+                config: {
+                    owner: getSafeAddress(EndpointId.PEAQ_V2_MAINNET),
+                    minters: {
+                        [peaqAssetAddresses.ETH]: true,
+                    },
+                },
+            },
+            {
+                contract: peaqUSDT,
+                config: {
+                    owner: getSafeAddress(EndpointId.PEAQ_V2_MAINNET),
+                    minters: {
+                        [peaqAssetAddresses.USDT]: true,
                     },
                 },
             },
