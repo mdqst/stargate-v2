@@ -1094,11 +1094,23 @@ export const NETWORKS: NetworksConfig = {
             ...DEFAULT_TOKEN_MESSAGING_NETWORK_CONFIG,
             requiredDVNs: [DVNS.NETHERMIND[EndpointId.PEAQ_V2_MAINNET], DVNS.STG[EndpointId.PEAQ_V2_MAINNET]],
             executor: EXECUTORS.LZ_LABS[EndpointId.PEAQ_V2_MAINNET],
-            // TODO : nativeDropAmount: parseEther(TODO).toBigInt(),
+            nativeDropAmount: parseEther('0.001').toBigInt(),
         },
         safeConfig: {
-            safeAddress: '', // TODO
-            safeUrl: '', // TODO
+            safeAddress: '0xB2687F7F6290aBa4ED3290ffFF6cB2e1cc30686D',
+            safeUrl: 'https://peaq-tx.lzdevnet.org/',
+            contractNetworks: {
+                [3338]: {
+                    multiSendAddress: '0x3150DF8a991204d541AD13988B609C6f50af0B7b',
+                    multiSendCallOnlyAddress: '0x6E5df01a1bEFe75bb01FCC20d3a8cCbF6c8f0356',
+                    safeMasterCopyAddress: '0xEFABd4B65F9E7097Dc7bf69de6FC9CbA2C227b9C',
+                    safeProxyFactoryAddress: '0xF545Fd55CeB06365f660AD8cC45A838eDAcBa6dC',
+                    fallbackHandlerAddress: '0xE3AfD9dDd88F10355C51197A350855B9c3FdC9d5',
+                    createCallAddress: '0x3fde1294F61A6f70e5eA7A4E4f3a4047E0C0eC11',
+                    signMessageLibAddress: '0xde261fCa19e0C85A46308D268C9968D001AF4d72',
+                    simulateTxAccessorAddress: '0x2023FD9E5d626425b55B8Beb62Ae5934e27a9f5e',
+                },
+            },
         },
     },
     [EndpointId.POLYGON_V2_MAINNET]: {
