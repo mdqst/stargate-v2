@@ -30,6 +30,7 @@ export default async (): Promise<OmniGraphHardhat<AssetNodeConfig, AssetEdgeConf
     const klaytnPoint = getAssetPoint(EndpointId.KLAYTN_V2_MAINNET)
     const mantlePoint = getAssetPoint(EndpointId.MANTLE_V2_MAINNET)
     const optPoint = getAssetPoint(EndpointId.OPTIMISM_V2_MAINNET)
+    const peaqPoint = getAssetPoint(EndpointId.PEAQ_V2_MAINNET)
     const polygonPoint = getAssetPoint(EndpointId.POLYGON_V2_MAINNET)
     const rariblePoint = getAssetPoint(EndpointId.RARIBLE_V2_MAINNET)
     const scrollPoint = getAssetPoint(EndpointId.SCROLL_V2_MAINNET)
@@ -50,6 +51,7 @@ export default async (): Promise<OmniGraphHardhat<AssetNodeConfig, AssetEdgeConf
     const klaytnContract = await getAssetNode(klaytnPoint)
     const mantleContract = await getAssetNode(mantlePoint)
     const optContract = await getAssetNode(optPoint)
+    const peaqContract = await getAssetNode(peaqPoint)
     const polygonContract = await getAssetNode(polygonPoint)
     const raribleContract = await getAssetNode(rariblePoint)
     const scrollContract = await getAssetNode(scrollPoint)
@@ -71,6 +73,7 @@ export default async (): Promise<OmniGraphHardhat<AssetNodeConfig, AssetEdgeConf
             klaytnContract,
             mantleContract,
             optContract,
+            peaqContract,
             polygonContract,
             raribleContract,
             scrollContract,
@@ -91,6 +94,7 @@ export default async (): Promise<OmniGraphHardhat<AssetNodeConfig, AssetEdgeConf
             klaytnPoint,
             mantlePoint,
             optPoint,
+            peaqPoint,
             polygonPoint,
             rariblePoint,
             scrollPoint,
