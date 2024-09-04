@@ -290,6 +290,7 @@ export default async (): Promise<OmniGraphHardhat<CreditMessagingNodeConfig, Cre
             mantleCreditMsging,
             metisCreditMsging,
             optCreditMsging,
+            peaqCreditMsging,
             polygonCreditMsging,
             raribleCreditMsging,
             scrollCreditMsging,
