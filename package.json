@@ -20,13 +20,16 @@
     ]
   },
   "resolutions": {
+    "@layerzerolabs/lz-definitions": "3.0.7",
+    "@layerzerolabs/lz-evm-sdk-v2": "3.0.7",
+    "@layerzerolabs/lz-v2-utilities": "3.0.7",
     "es5-ext": "https://github.com/LayerZero-Labs/es5-ext"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "@layerzerolabs/eslint-config-next": "~2.3.10",
-    "@layerzerolabs/prettier-config-next": "~2.3.25",
-    "@layerzerolabs/solhint-config": "~2.3.25",
+    "@layerzerolabs/eslint-config-next": "~3.0.7",
+    "@layerzerolabs/prettier-config-next": "~3.0.7",
+    "@layerzerolabs/solhint-config": "~3.0.7",
     "@rushstack/eslint-patch": "^1.5.1",
     "eslint-plugin-jest-extended": "2.0.0",
     "husky": "^8.0.3",

@@ -118,7 +118,7 @@ const networks: NetworksUserConfig = {
     //
     'arbsep-testnet': {
         eid: EndpointId.ARBSEP_V2_TESTNET,
-        url: process.env.RPC_URL_ARBITRUM_TESTNET || 'https://arbitrum-sepolia.blockpi.network/v1/rpc/public',
+        url: process.env.RPC_URL_ARBITRUM_TESTNET || 'https://arbitrum-sepolia.gateway.tenderly.co',
         accounts: testnetAccounts,
         useFeeData: true,
     },
@@ -271,6 +271,13 @@ const networks: NetworksUserConfig = {
         url: process.env.RPC_URL_KLAYTN_MAINNET || 'https://public-en.node.kaia.io',
         accounts: mainnetAccounts,
         safeConfig: getSafeConfig(EndpointId.KLAYTN_V2_MAINNET),
+        timeout: DEFAULT_NETWORK_TIMEOUT,
+    },
+    'lightlink-mainnet': {
+        eid: EndpointId.LIGHTLINK_V2_MAINNET,
+        url: process.env.RPC_URL_LIGHTLINK_MAINNET || 'https://replicator.phoenix.lightlink.io/rpc/v1',
+        accounts: mainnetAccounts,
+        safeConfig: getSafeConfig(EndpointId.LIGHTLINK_V2_MAINNET),
         timeout: DEFAULT_NETWORK_TIMEOUT,
     },
     'manta-mainnet': {
